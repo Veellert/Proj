@@ -24,7 +24,6 @@
           <input class="form-control" type="text" name="task" id ="list" value='.$tmp->task.'><br>
           <button class="btn btn-danger" type="submit" name="send"> Сохранить </button>';
       ?>
-      </a>
     </form>
   </div>
 </body>
