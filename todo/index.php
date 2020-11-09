@@ -10,9 +10,9 @@
 <body>
     <div class="container">
     <h1>ToDo:</h1>
-    <form action="addtodo.php" method="GET">
-    <input class="form-control" type="text" name="list" id ="list" placeholder="Введите текст заметки..." value=''><br>
-    <button class="btn btn-danger" type="submit" name="send"> Добавить </button>
+    <form action="addtodo.php" method="GET" class="frame">
+      <input class="form-control" type="text" name="list" id ="list" placeholder="Введите текст заметки..." value=''><br>
+      <button class="btn btn-danger" type="submit" name="send"> Добавить </button>
     </form>
     <?php
         require 'dbconf.php';
@@ -22,19 +22,29 @@
         {
           if($tmp->done == 0)
           {
-            echo '<li><b>'.$tmp->task.'</b>
+            echo '
+            <li>
+            <b>'.$tmp->id.') </b>
+            <b>'.$tmp->task.'</b>
+            <br>
             <a href="./del.php?id='.$tmp->id.'"><br><button class="btn btn-danger"> Удалить</button></a>
             <a href="./donetodo.php?id='.$tmp->id.'"><button class="btn btn-success"> Выполнить</button></a>
             <a href="./redbox.php?id='.$tmp->id.'"><button class="btn btn-primary"> Редактировать</button></a>
-            </li>';
+            </li>
+            ';
           }
           else
           {
-            echo '<li><b>'.$tmp->task.'</b>
+            echo '
+            <li>
+            <b>'.$tmp->id.') </b>
+            <b>'.$tmp->task.'</b>
+            <br>
             <a href="./del.php?id='.$tmp->id.'"><br><button class="btn btn-danger"> Удалить</button></a>
             <button class="btn btn-outline-secondary" disabled> Сделано</button>
             <a href="./redbox.php?id='.$tmp->id.'"><button class="btn btn-primary"> Редактировать</button></a>
-            </li>';
+            </li>
+            ';
           }
         }
         echo '</ul>';
